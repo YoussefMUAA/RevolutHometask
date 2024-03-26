@@ -1,0 +1,40 @@
+<mat-card class="max-width mx-auto py-5" *ngIf="donation.donationId">
+            <table class="mat-elevation-z8 w-full mat-table">
+                <thead class="mat-header">
+                    <tr>
+                        <th class="mat-header-cell">ID</th>
+                        <th class="mat-header-cell">Amount</th>
+                        <th class="mat-header-cell">Currency</th>
+                        <th class="mat-header-cell">Description</th>
+                        <th class="mat-header-cell">Token</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="mat-row">
+                        <td class="mat-cell">{{donation.donationId}}</td>
+                        <td class="mat-cell">{{donation.amount}}</td>
+                        <td class="mat-cell">{{donation.currency}}</td>
+                        <td class="mat-cell">{{donation.description}}</td>
+                    <td class="mat-cell">{{donation.token}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    <div class="flex justify-between p-5">
+        <div class="flex justify-center">
+            <button  mat-raised-button routerLink="/home">Restart Donation</button>
+        </div>
+        <div class="flex justify-center">
+            <button mat-raised-button (click)="onPaymentPopup(donation)"
+            >Go to payment</button>
+        </div>
+    </div>
+</mat-card>
+<mat-card class="max-width mx-auto" *ngIf="!donation.donationId">
+    <p class="justify-between">
+        Oops! No donations submitted yet. Remember to introduce an amount
+        <button mat-raised-button routerLink="/home">Go to donations page</button>
+    </p>
+</mat-card>
+
